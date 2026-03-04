@@ -1,0 +1,42 @@
+{
+  "name": "Harris-Benedict · Calculadora TMB",
+  "short_name": "Harris-Benedict",
+  "description": "Calcula tu Tasa Metabólica Basal y gasto calórico diario con la ecuación de Harris-Benedict. Funciona sin conexión.",
+  "start_url": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0f0e0e",
+  "theme_color": "#0f0e0e",
+  "lang": "es",
+  "categories": ["health", "fitness", "utilities"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "icons/screenshot.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Calcular TMB",
+      "short_name": "Calcular",
+      "description": "Ir directo a la calculadora",
+      "url": "./"
+    }
+  ]
+}
