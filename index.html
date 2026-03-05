@@ -119,7 +119,7 @@
     .coach-block-title span { font-family: 'Anton', sans-serif; font-size: 1rem; letter-spacing: 0; }
     .coach-ideal-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
     .coach-ideal-bar { flex: 1; height: 8px; background: #e0e0da; position: relative; }
-    .coach-ideal-fill { position: absolute; left: 0; top: 0; height: 100%; background: var(--black); transition: width .4s ease; }
+    .coach-ideal-fill { position: absolute; top: 0; height: 100%; background: var(--black); opacity: .35; transition: left .4s ease, width .4s ease; }
     .coach-ideal-marker { position: absolute; top: -4px; width: 4px; height: 16px; background: #c0392b; transform: translateX(-50%); }
     .coach-ideal-range { font-size: .72rem; font-weight: 700; }
     .coach-ideal-hint { font-size: .68rem; opacity: .5; margin-top: 4px; }
@@ -472,25 +472,30 @@
     document.getElementById('coach-status-sub').textContent   = statusSub;
     document.getElementById('coach-bmi').textContent          = bmiRound;
 
-    // Ideal weight (Devine formula)
-    const hExtra   = heightCm - 152.4;
-    const idealMin = Math.round((gender === 'male' ? 50 : 45.5) + 0.8 * hExtra);
-    const idealMax = Math.round((gender === 'male' ? 50 : 45.5) + 1.0 * hExtra);
+    // Ideal weight based on healthy BMI range (18.5 – 24.9)
+    const hM       = heightCm / 100;
+    const idealMin = Math.round(18.5 * hM * hM);
+    const idealMax = Math.round(24.9 * hM * hM);
     document.getElementById('coach-ideal-range').textContent =
       idealMin + ' – ' + idealMax + ' kg  (para ' + Math.round(heightCm) + ' cm)';
 
-    const clampedW = Math.min(Math.max(weightKg, idealMin * 0.7), idealMax * 1.5);
-    const pct      = ((clampedW - idealMin * 0.7) / (idealMax * 1.5 - idealMin * 0.7)) * 100;
-    const idealPct = ((idealMax - idealMin * 0.7) / (idealMax * 1.5 - idealMin * 0.7)) * 100;
-    document.getElementById('coach-ideal-fill').style.width  = idealPct + '%';
+    // Bar: show range from underweight boundary to obese boundary
+    const barMin   = Math.round(16 * hM * hM);   // severe underweight
+    const barMax   = Math.round(35 * hM * hM);   // obesity II boundary
+    const clampedW = Math.min(Math.max(weightKg, barMin), barMax);
+    const pct      = ((clampedW - barMin) / (barMax - barMin)) * 100;
+    const fillMin  = ((idealMin - barMin) / (barMax - barMin)) * 100;
+    const fillMax  = ((idealMax - barMin) / (barMax - barMin)) * 100;
+    document.getElementById('coach-ideal-fill').style.left  = fillMin + '%';
+    document.getElementById('coach-ideal-fill').style.width = (fillMax - fillMin) + '%';
     document.getElementById('coach-ideal-marker').style.left = Math.min(pct, 98) + '%';
 
     const diff = Math.round(weightKg - (idealMin + idealMax) / 2);
     document.getElementById('coach-ideal-hint').textContent = diff > 0
-      ? '→ Te sobran aprox. ' + diff + ' kg para estar en el centro de tu rango ideal.'
+      ? '→ Te sobran aprox. ' + diff + ' kg para alcanzar el centro del rango saludable (IMC 18.5–24.9).'
       : diff < 0
-      ? '→ Te faltan aprox. ' + Math.abs(diff) + ' kg para estar en el centro de tu rango ideal.'
-      : '→ Estás exactamente en el centro de tu rango ideal. ¡Excelente!';
+      ? '→ Te faltan aprox. ' + Math.abs(diff) + ' kg para alcanzar el centro del rango saludable (IMC 18.5–24.9).'
+      : '→ Estás exactamente en el centro del rango saludable. ¡Excelente!';
 
     let avoidTags, goodTags, swaps, exercises, motivation;
 
