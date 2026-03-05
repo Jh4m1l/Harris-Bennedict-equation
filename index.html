@@ -101,195 +101,44 @@
     .history-del { background: transparent; border: none; font-family: 'IBM Plex Mono', monospace; font-size: .8rem; opacity: .25; cursor: crosshair; padding: 4px; }
     .history-del:hover { opacity: 1; color: #c0392b; }
 
-
     /* ── COACH SECTION ── */
     #coach-section { display: none; }
     #coach-section.show { display: block; }
-
-    .coach-status-bar {
-      padding: 24px 20px;
-      border-bottom: var(--border);
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
+    .coach-status-bar { padding: 24px 20px; border-bottom: var(--border); display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
     .coach-status-bar.status-danger  { background: #0a0a0a; color: #f5f5f0; }
     .coach-status-bar.status-warning { background: #ffe500; color: #0a0a0a; }
     .coach-status-bar.status-ok      { background: #f5f5f0; color: #0a0a0a; border-top: var(--border); }
-
-    .coach-status-label {
-      font-size: .6rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      opacity: .5;
-      margin-bottom: 6px;
-    }
-
-    .coach-status-title {
-      font-family: 'Anton', sans-serif;
-      font-size: clamp(1.8rem, 7vw, 3rem);
-      letter-spacing: -.01em;
-      line-height: 1;
-    }
-
-    .coach-bmi-box {
-      text-align: right;
-      flex-shrink: 0;
-    }
-
-    .coach-bmi-num {
-      font-family: 'Anton', sans-serif;
-      font-size: 2.8rem;
-      line-height: 1;
-      letter-spacing: -.02em;
-    }
-
-    .coach-bmi-label {
-      font-size: .6rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      opacity: .45;
-      margin-top: 4px;
-    }
-
-    .coach-block {
-      padding: 20px;
-      border-bottom: var(--border);
-    }
-
-    .coach-block-title {
-      font-size: .6rem;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      font-weight: 700;
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .coach-block-title span {
-      font-family: 'Anton', sans-serif;
-      font-size: 1rem;
-      letter-spacing: 0;
-    }
-
-    .coach-ideal-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 10px;
-    }
-
-    .coach-ideal-bar {
-      flex: 1;
-      height: 8px;
-      background: #e0e0da;
-      position: relative;
-    }
-
-    .coach-ideal-fill {
-      position: absolute;
-      left: 0; top: 0; height: 100%;
-      background: var(--black);
-      transition: width .4s ease;
-    }
-
-    .coach-ideal-marker {
-      position: absolute;
-      top: -4px;
-      width: 4px;
-      height: 16px;
-      background: #c0392b;
-      transform: translateX(-50%);
-    }
-
-    .coach-ideal-range {
-      font-size: .72rem;
-      font-weight: 700;
-    }
-
-    .coach-ideal-hint {
-      font-size: .68rem;
-      opacity: .5;
-      margin-top: 4px;
-    }
-
-    .coach-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .coach-list li {
-      font-size: .78rem;
-      line-height: 1.5;
-      display: flex;
-      gap: 10px;
-    }
-
-    .coach-list li::before {
-      content: attr(data-icon);
-      flex-shrink: 0;
-      font-size: .9rem;
-    }
-
-    .coach-tag {
-      display: inline-block;
-      border: var(--border);
-      font-size: .65rem;
-      font-weight: 700;
-      letter-spacing: .06em;
-      padding: 3px 8px;
-      margin: 3px 3px 0 0;
-      text-transform: uppercase;
-    }
-
+    .coach-status-label { font-size: .6rem; letter-spacing: .18em; text-transform: uppercase; opacity: .5; margin-bottom: 6px; }
+    .coach-status-title { font-family: 'Anton', sans-serif; font-size: clamp(1.8rem, 7vw, 3rem); letter-spacing: -.01em; line-height: 1; }
+    .coach-status-sub { font-size: .72rem; margin-top: 8px; line-height: 1.6; opacity: .7; max-width: 320px; }
+    .coach-bmi-box { text-align: right; flex-shrink: 0; }
+    .coach-bmi-num { font-family: 'Anton', sans-serif; font-size: 2.8rem; line-height: 1; letter-spacing: -.02em; }
+    .coach-bmi-label { font-size: .6rem; letter-spacing: .12em; text-transform: uppercase; opacity: .45; margin-top: 4px; }
+    .coach-block { padding: 20px; border-bottom: var(--border); }
+    .coach-block-title { font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+    .coach-block-title span { font-family: 'Anton', sans-serif; font-size: 1rem; letter-spacing: 0; }
+    .coach-ideal-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .coach-ideal-bar { flex: 1; height: 8px; background: #e0e0da; position: relative; }
+    .coach-ideal-fill { position: absolute; left: 0; top: 0; height: 100%; background: var(--black); transition: width .4s ease; }
+    .coach-ideal-marker { position: absolute; top: -4px; width: 4px; height: 16px; background: #c0392b; transform: translateX(-50%); }
+    .coach-ideal-range { font-size: .72rem; font-weight: 700; }
+    .coach-ideal-hint { font-size: .68rem; opacity: .5; margin-top: 4px; }
+    .coach-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .coach-list li { font-size: .78rem; line-height: 1.5; display: flex; gap: 10px; }
+    .coach-list li::before { content: attr(data-icon); flex-shrink: 0; font-size: .9rem; }
+    .coach-tag { display: inline-block; border: var(--border); font-size: .65rem; font-weight: 700; letter-spacing: .06em; padding: 3px 8px; margin: 3px 3px 0 0; text-transform: uppercase; }
     .coach-tag.avoid { background: #0a0a0a; color: #f5f5f0; }
-    .coach-tag.replace { background: var(--yellow); color: #0a0a0a; }
     .coach-tag.good { background: #f5f5f0; color: #0a0a0a; }
-
-    .coach-exercise-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      border: var(--border);
-    }
-
-    .coach-exercise-item {
-      padding: 14px;
-      border-right: var(--border);
-      border-bottom: var(--border);
-    }
-
+    .coach-exercise-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: var(--border); }
+    .coach-exercise-item { padding: 14px; border-right: var(--border); border-bottom: var(--border); }
     .coach-exercise-item:nth-child(2n) { border-right: none; }
     .coach-exercise-item:nth-last-child(-n+2) { border-bottom: none; }
-
     .coach-exercise-icon { font-size: 1.4rem; margin-bottom: 6px; }
     .coach-exercise-name { font-size: .75rem; font-weight: 700; margin-bottom: 3px; }
     .coach-exercise-detail { font-size: .65rem; opacity: .5; line-height: 1.5; }
-
-    .coach-motivation {
-      padding: 20px;
-      background: var(--black);
-      color: var(--white);
-      border-bottom: var(--border);
-    }
-
-    .coach-motivation-text {
-      font-family: 'Anton', sans-serif;
-      font-size: clamp(1.1rem, 4vw, 1.6rem);
-      line-height: 1.2;
-      letter-spacing: -.01em;
-    }
-
-    .coach-motivation-text em {
-      font-style: normal;
-      color: var(--yellow);
-    }
+    .coach-motivation { padding: 20px; background: var(--black); color: var(--white); border-bottom: var(--border); }
+    .coach-motivation-text { font-family: 'Anton', sans-serif; font-size: clamp(1.1rem, 4vw, 1.6rem); line-height: 1.2; letter-spacing: -.01em; }
+    .coach-motivation-text em { font-style: normal; color: var(--yellow); }
 
     /* ── FOOD SECTION ── */
     #food-section { display: none; border-bottom: var(--border); }
@@ -309,6 +158,7 @@
     .food-meal-desc { font-size: .72rem; opacity: .5; line-height: 1.5; }
     .food-meal-kcal { font-family: 'Anton', sans-serif; font-size: 1rem; float: right; margin-top: -38px; opacity: .7; }
     .food-disclaimer { padding: 12px 20px; font-size: .62rem; opacity: .35; line-height: 1.7; border-top: var(--border); background: #f8f8f4; }
+
     footer { padding: 20px; font-size: .65rem; opacity: .35; line-height: 1.9; letter-spacing: .05em; border-top: var(--border); }
     footer a { color: inherit; }
     .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--black); color: var(--yellow); font-family: 'IBM Plex Mono', monospace; font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 10px 20px; border: var(--border); opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; white-space: nowrap; z-index: 200; }
@@ -409,6 +259,7 @@
 
   <button class="calc-btn" onclick="calculate()">→ CALCULAR</button>
 
+  <!-- ── RESULTS: TMB + TDEE ── -->
   <div id="results">
     <div class="result-hero">
       <div class="result-hero-label">Tasa Metabólica Basal (TMB)</div>
@@ -425,6 +276,82 @@
     </div>
   </div>
 
+  <!-- ── COACH SECTION ── -->
+  <div id="coach-section">
+    <div class="coach-status-bar status-ok" id="coach-status-bar">
+      <div>
+        <div class="coach-status-label">Diagnóstico · IMC</div>
+        <div class="coach-status-title" id="coach-status-title">—</div>
+        <div class="coach-status-sub" id="coach-status-sub"></div>
+      </div>
+      <div class="coach-bmi-box">
+        <div class="coach-bmi-num" id="coach-bmi">—</div>
+        <div class="coach-bmi-label">IMC</div>
+      </div>
+    </div>
+
+    <div class="coach-block">
+      <div class="coach-block-title"><span>⚖️</span> Peso ideal</div>
+      <div class="coach-ideal-row">
+        <div class="coach-ideal-bar">
+          <div class="coach-ideal-fill" id="coach-ideal-fill"></div>
+          <div class="coach-ideal-marker" id="coach-ideal-marker"></div>
+        </div>
+        <span class="coach-ideal-range" id="coach-ideal-range">—</span>
+      </div>
+      <div class="coach-ideal-hint" id="coach-ideal-hint"></div>
+    </div>
+
+    <div class="coach-block">
+      <div class="coach-block-title"><span>🚫</span> Evitar</div>
+      <div id="coach-avoid-tags"></div>
+    </div>
+
+    <div class="coach-block">
+      <div class="coach-block-title"><span>✅</span> Priorizar</div>
+      <div id="coach-good-tags"></div>
+    </div>
+
+    <div class="coach-block">
+      <div class="coach-block-title"><span>🔄</span> Intercambios clave</div>
+      <ul class="coach-list" id="coach-swaps"></ul>
+    </div>
+
+    <div class="coach-block">
+      <div class="coach-block-title"><span>🏃</span> Ejercicio recomendado</div>
+      <div class="coach-exercise-grid" id="coach-exercise-grid"></div>
+    </div>
+
+    <div class="coach-motivation">
+      <div class="coach-motivation-text" id="coach-motivation-text"></div>
+    </div>
+  </div>
+
+  <!-- ── FOOD SECTION ── -->
+  <div id="food-section">
+    <div class="food-header">Plan alimenticio sugerido</div>
+    <div class="food-goal-row">
+      <div class="food-goal">
+        <div class="food-goal-label">Calorías</div>
+        <div class="food-goal-val" id="food-tdee">—</div>
+        <div class="food-goal-unit">kcal/día</div>
+      </div>
+      <div class="food-goal">
+        <div class="food-goal-label">Proteína</div>
+        <div class="food-goal-val" id="food-protein">—</div>
+        <div class="food-goal-unit">g/día</div>
+      </div>
+      <div class="food-goal">
+        <div class="food-goal-label">Agua</div>
+        <div class="food-goal-val" id="food-water">—</div>
+        <div class="food-goal-unit">litros/día</div>
+      </div>
+    </div>
+    <div class="food-meals" id="food-meals"></div>
+    <div class="food-disclaimer">* Plan referencial. Consulta con un nutricionista para un plan personalizado.</div>
+  </div>
+
+  <!-- ── HISTORY ── -->
   <div id="history-section">
     <div class="history-header-row">
       <div class="history-title">
@@ -479,44 +406,6 @@
     activityMult = mult;
   }
 
-  function calculate() {
-    const ageVal = parseFloat(document.getElementById('age').value);
-    const weightVal = parseFloat(document.getElementById('weight').value);
-    const heightVal = parseFloat(document.getElementById('height').value);
-
-    if (!ageVal || !weightVal || !heightVal) { showToast('COMPLETA TODOS LOS CAMPOS'); return; }
-
-    const kg = units === 'metric' ? weightVal : weightVal * 0.453592;
-    const cm = units === 'metric' ? heightVal : heightVal * 2.54;
-
-    const bmr = gender === 'male'
-      ? 88.362 + (13.397 * kg) + (4.799 * cm) - (5.677 * ageVal)
-      : 447.593 + (9.247 * kg) + (3.098 * cm) - (4.330 * ageVal);
-
-    const activities = [
-      { label: 'Sedentario',           sub: 'poco o ningún ejercicio', mult: 1.2   },
-      { label: 'Levemente activo',     sub: '1–3 días / semana',       mult: 1.375 },
-      { label: 'Moderadamente activo', sub: '3–5 días / semana',       mult: 1.55  },
-      { label: 'Muy activo',           sub: '6–7 días / semana',       mult: 1.725 },
-      { label: 'Extra activo',         sub: 'trabajo físico intenso',  mult: 1.9   },
-    ];
-
-    document.getElementById('bmr-value').textContent = Math.round(bmr).toLocaleString('es');
-
-    document.getElementById('formula-note').textContent = gender === 'male'
-      ? `88.36 + (13.40 × ${kg.toFixed(1)}) + (4.80 × ${cm.toFixed(1)}) − (5.68 × ${ageVal})`
-      : `447.59 + (9.25 × ${kg.toFixed(1)}) + (3.10 × ${cm.toFixed(1)}) − (4.33 × ${ageVal})`;
-
-    document.getElementById('tdee-grid').innerHTML = activities.map(a => `
-      <div class="tdee-row ${a.mult === activityMult ? 'active-row' : ''}">
-        <span class="tdee-activity">${a.label}<small>${a.sub}</small></span>
-        <span class="tdee-kcal">${Math.round(bmr * a.mult).toLocaleString('es')}</span>
-      </div>`).join('');
-
-    document.getElementById('results').classList.add('show');
-    setTimeout(() => document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
-
-
   // ── FOOD RECOMMENDATIONS ──
   function renderFood(tdee, weightKg) {
     const protein = Math.round(weightKg * 1.6);
@@ -532,30 +421,10 @@
     const kcalDinner    = Math.round(tdee * 0.25);
 
     const meals = [
-      {
-        time: '07:00 — Desayuno',
-        name: 'Avena con frutas y huevos',
-        desc: 'Avena cocida · 2 huevos revueltos · plátano · café negro',
-        kcal: kcalBreakfast
-      },
-      {
-        time: '13:00 — Almuerzo',
-        name: 'Arroz + proteína + vegetales',
-        desc: 'Pechuga de pollo o atún · arroz integral · ensalada · aceite de oliva',
-        kcal: kcalLunch
-      },
-      {
-        time: '16:30 — Merienda',
-        name: 'Snack energético',
-        desc: 'Yogur griego · nueces · fruta de temporada',
-        kcal: kcalSnack
-      },
-      {
-        time: '20:00 — Cena',
-        name: 'Proteína ligera + verduras',
-        desc: 'Pescado o legumbres · verduras salteadas · pan integral',
-        kcal: kcalDinner
-      }
+      { time: '07:00 — Desayuno', name: 'Avena con frutas y huevos',       desc: 'Avena cocida · 2 huevos revueltos · plátano · café negro',                          kcal: kcalBreakfast },
+      { time: '13:00 — Almuerzo', name: 'Arroz + proteína + vegetales',    desc: 'Pechuga de pollo o atún · arroz integral · ensalada · aceite de oliva',              kcal: kcalLunch     },
+      { time: '16:30 — Merienda', name: 'Snack energético',                desc: 'Yogur griego · nueces · fruta de temporada',                                          kcal: kcalSnack     },
+      { time: '20:00 — Cena',     name: 'Proteína ligera + verduras',      desc: 'Pescado o legumbres · verduras salteadas · pan integral',                             kcal: kcalDinner    },
     ];
 
     document.getElementById('food-meals').innerHTML = meals.map(m => `
@@ -569,13 +438,11 @@
     document.getElementById('food-section').classList.add('show');
   }
 
-
   // ── COACH / DIAGNÓSTICO ──
-  function renderCoach(weightKg, heightCm, tdee) {
-    const bmi = weightKg / ((heightCm / 100) ** 2);
+  function renderCoach(weightKg, heightCm) {
+    const bmi      = weightKg / ((heightCm / 100) ** 2);
     const bmiRound = bmi.toFixed(1);
 
-    // BMI status
     let statusClass, statusTitle, statusSub;
     if (bmi < 18.5) {
       statusClass = 'status-ok';
@@ -603,20 +470,19 @@
     bar.className = 'coach-status-bar ' + statusClass;
     document.getElementById('coach-status-title').textContent = statusTitle;
     document.getElementById('coach-status-sub').textContent   = statusSub;
-    document.getElementById('coach-bmi').textContent = bmiRound;
+    document.getElementById('coach-bmi').textContent          = bmiRound;
 
-    // Ideal weight (Devine formula range)
-    const hExtra = heightCm - 152.4;
+    // Ideal weight (Devine formula)
+    const hExtra   = heightCm - 152.4;
     const idealMin = Math.round((gender === 'male' ? 50 : 45.5) + 0.8 * hExtra);
     const idealMax = Math.round((gender === 'male' ? 50 : 45.5) + 1.0 * hExtra);
     document.getElementById('coach-ideal-range').textContent =
       idealMin + ' – ' + idealMax + ' kg  (para ' + Math.round(heightCm) + ' cm)';
 
     const clampedW = Math.min(Math.max(weightKg, idealMin * 0.7), idealMax * 1.5);
-    const pct = ((clampedW - idealMin * 0.7) / (idealMax * 1.5 - idealMin * 0.7)) * 100;
+    const pct      = ((clampedW - idealMin * 0.7) / (idealMax * 1.5 - idealMin * 0.7)) * 100;
     const idealPct = ((idealMax - idealMin * 0.7) / (idealMax * 1.5 - idealMin * 0.7)) * 100;
-
-    document.getElementById('coach-ideal-fill').style.width = idealPct + '%';
+    document.getElementById('coach-ideal-fill').style.width  = idealPct + '%';
     document.getElementById('coach-ideal-marker').style.left = Math.min(pct, 98) + '%';
 
     const diff = Math.round(weightKg - (idealMin + idealMax) / 2);
@@ -626,121 +492,98 @@
       ? '→ Te faltan aprox. ' + Math.abs(diff) + ' kg para estar en el centro de tu rango ideal.'
       : '→ Estás exactamente en el centro de tu rango ideal. ¡Excelente!';
 
-    // Food advice by BMI
     let avoidTags, goodTags, swaps, exercises, motivation;
 
     if (bmi >= 30) {
-      avoidTags = ['Arroz blanco', 'Pan blanco', 'Azúcar', 'Frituras', 'Refrescos', 'Alcohol', 'Ultraprocesados'];
-      goodTags  = ['Proteína magra', 'Vegetales', 'Agua', 'Avena', 'Huevos', 'Legumbres'];
-      swaps = [
-        ['Arroz blanco', 'arroz integral o coliflor rallada'],
-        ['Refresco', 'agua con limón o té sin azúcar'],
-        ['Pan blanco', 'pan integral o tortilla de maíz'],
-        ['Fritura', 'horneado o a la plancha'],
-        ['Azúcar de mesa', 'stevia o fruta natural'],
-      ];
-      exercises = [
-        { icon: '🚶', name: 'Caminata', detail: '30–45 min · 5 veces/sem · ritmo moderado' },
-        { icon: '🏋️', name: 'Pesas', detail: '3 veces/sem · enfocado en grandes grupos musculares' },
-        { icon: '🚴', name: 'Bicicleta', detail: '25 min · 3 veces/sem · baja impacto en rodillas' },
-        { icon: '🏊', name: 'Natación', detail: '2 veces/sem · excelente para sobrepeso alto' },
-      ];
+      avoidTags  = ['Arroz blanco', 'Pan blanco', 'Azúcar', 'Frituras', 'Refrescos', 'Alcohol', 'Ultraprocesados'];
+      goodTags   = ['Proteína magra', 'Vegetales', 'Agua', 'Avena', 'Huevos', 'Legumbres'];
+      swaps      = [['Arroz blanco','arroz integral o coliflor rallada'],['Refresco','agua con limón o té sin azúcar'],['Pan blanco','pan integral o tortilla de maíz'],['Fritura','horneado o a la plancha'],['Azúcar de mesa','stevia o fruta natural']];
+      exercises  = [{icon:'🚶',name:'Caminata',detail:'30–45 min · 5 veces/sem · ritmo moderado'},{icon:'🏋️',name:'Pesas',detail:'3 veces/sem · enfocado en grandes grupos musculares'},{icon:'🚴',name:'Bicicleta',detail:'25 min · 3 veces/sem · baja impacto en rodillas'},{icon:'🏊',name:'Natación',detail:'2 veces/sem · excelente para sobrepeso alto'}];
       motivation = 'Tu cuerpo <em>puede cambiar</em>. No necesitas hacerlo todo perfecto — solo <em>ser constante</em>.';
-
     } else if (bmi >= 25) {
-      avoidTags = ['Azúcar añadida', 'Harinas refinadas', 'Snacks ultraprocesados', 'Alcohol frecuente'];
-      goodTags  = ['Proteína alta', 'Fibra', 'Grasas saludables', 'Agua', 'Verduras'];
-      swaps = [
-        ['Snack de bolsa', 'nueces o fruta con yogur griego'],
-        ['Jugo de fruta', 'fruta entera (más fibra)'],
-        ['Pasta blanca', 'pasta integral o fideos de legumbre'],
-        ['Cena copiosa', 'cena ligera antes de las 8pm'],
-      ];
-      exercises = [
-        { icon: '🏃', name: 'Cardio', detail: '30 min · 4 veces/sem · trote suave o HIIT ligero' },
-        { icon: '🏋️', name: 'Pesas', detail: '3 veces/sem · construye músculo y acelera metabolismo' },
-        { icon: '🧘', name: 'Movilidad', detail: '15 min diarios · reduce inflamación y estrés' },
-        { icon: '🚶', name: 'Pasos diarios', detail: 'Meta: 8.000–10.000 pasos · usa un contador' },
-      ];
+      avoidTags  = ['Azúcar añadida', 'Harinas refinadas', 'Snacks ultraprocesados', 'Alcohol frecuente'];
+      goodTags   = ['Proteína alta', 'Fibra', 'Grasas saludables', 'Agua', 'Verduras'];
+      swaps      = [['Snack de bolsa','nueces o fruta con yogur griego'],['Jugo de fruta','fruta entera (más fibra)'],['Pasta blanca','pasta integral o fideos de legumbre'],['Cena copiosa','cena ligera antes de las 8pm']];
+      exercises  = [{icon:'🏃',name:'Cardio',detail:'30 min · 4 veces/sem · trote suave o HIIT ligero'},{icon:'🏋️',name:'Pesas',detail:'3 veces/sem · construye músculo y acelera metabolismo'},{icon:'🧘',name:'Movilidad',detail:'15 min diarios · reduce inflamación y estrés'},{icon:'🚶',name:'Pasos diarios',detail:'Meta: 8.000–10.000 pasos · usa un contador'}];
       motivation = 'Estás a <em>pocos pasos</em> de tu peso ideal. <em>Sin prisa, sin pausa</em> — los hábitos ganan.';
-
     } else if (bmi >= 18.5) {
-      avoidTags = ['Exceso de calorías vacías', 'Saltarse comidas', 'Sedentarismo'];
-      goodTags  = ['Proteína suficiente', 'Variedad nutricional', 'Descanso', 'Hidratación'];
-      swaps = [
-        ['Saltarte el desayuno', 'desayuno con proteína y fibra'],
-        ['Comer rápido', 'comer despacio y sin pantallas'],
-        ['Snack azucarado', 'frutos secos o hummus con vegetal'],
-      ];
-      exercises = [
-        { icon: '🏋️', name: 'Pesas', detail: '3–4 veces/sem · mantén y mejora composición' },
-        { icon: '🏃', name: 'Cardio', detail: '2–3 veces/sem · 20–30 min para salud cardiovascular' },
-        { icon: '🧘', name: 'Flexibilidad', detail: 'Yoga o stretching · 2 veces/sem' },
-        { icon: '🚴', name: 'Actividad diaria', detail: 'Mantente activo fuera del gym — escaleras, caminar' },
-      ];
+      avoidTags  = ['Exceso de calorías vacías', 'Saltarse comidas', 'Sedentarismo'];
+      goodTags   = ['Proteína suficiente', 'Variedad nutricional', 'Descanso', 'Hidratación'];
+      swaps      = [['Saltarte el desayuno','desayuno con proteína y fibra'],['Comer rápido','comer despacio y sin pantallas'],['Snack azucarado','frutos secos o hummus con vegetal']];
+      exercises  = [{icon:'🏋️',name:'Pesas',detail:'3–4 veces/sem · mantén y mejora composición'},{icon:'🏃',name:'Cardio',detail:'2–3 veces/sem · 20–30 min para salud cardiovascular'},{icon:'🧘',name:'Flexibilidad',detail:'Yoga o stretching · 2 veces/sem'},{icon:'🚴',name:'Actividad diaria',detail:'Mantente activo fuera del gym — escaleras, caminar'}];
       motivation = '¡Estás en tu <em>rango ideal</em>! Ahora enfócate en <em>mejorar tu rendimiento</em> y fuerza.';
-
     } else {
-      avoidTags = ['Saltarse comidas', 'Dietas muy restrictivas', 'Exceso de cardio'];
-      goodTags  = ['Más calorías', 'Proteína alta', 'Carbohidratos complejos', 'Grasas buenas'];
-      swaps = [
-        ['Porciones pequeñas', 'añade una porción extra de proteína o carbohidrato'],
-        ['Cardio excesivo', 'prioriza pesas para ganar masa'],
-        ['Saltarte meriendas', 'snacks ricos en calorías: nueces, aguacate, queso'],
-      ];
-      exercises = [
-        { icon: '🏋️', name: 'Pesas', detail: '4 veces/sem · progresión de carga · gana músculo' },
-        { icon: '🍽️', name: 'Superávit', detail: '+300–500 kcal sobre tu TDEE para ganar masa' },
-        { icon: '😴', name: 'Descanso', detail: '8h de sueño · el músculo crece mientras duermes' },
-        { icon: '🧃', name: 'Batido post-entreno', detail: 'Proteína + carbohidrato en los 30min post-gym' },
-      ];
+      avoidTags  = ['Saltarse comidas', 'Dietas muy restrictivas', 'Exceso de cardio'];
+      goodTags   = ['Más calorías', 'Proteína alta', 'Carbohidratos complejos', 'Grasas buenas'];
+      swaps      = [['Porciones pequeñas','añade una porción extra de proteína o carbohidrato'],['Cardio excesivo','prioriza pesas para ganar masa'],['Saltarte meriendas','snacks ricos en calorías: nueces, aguacate, queso']];
+      exercises  = [{icon:'🏋️',name:'Pesas',detail:'4 veces/sem · progresión de carga · gana músculo'},{icon:'🍽️',name:'Superávit',detail:'+300–500 kcal sobre tu TDEE para ganar masa'},{icon:'😴',name:'Descanso',detail:'8h de sueño · el músculo crece mientras duermes'},{icon:'🧃',name:'Batido post-entreno',detail:'Proteína + carbohidrato en los 30min post-gym'}];
       motivation = 'Tu meta es <em>ganar masa</em>. Come más, entrena con pesas y <em>duerme bien</em>. El cuerpo responde.';
     }
 
-    // Render avoid tags
-    document.getElementById('coach-avoid-tags').innerHTML =
-      avoidTags.map(t => `<span class="coach-tag avoid">${t}</span>`).join('');
-
-    // Render good tags
-    document.getElementById('coach-good-tags').innerHTML =
-      goodTags.map(t => `<span class="coach-tag good">${t}</span>`).join('');
-
-    // Render swaps
-    document.getElementById('coach-swaps').innerHTML =
-      swaps.map(([from, to]) =>
-        `<li data-icon="→"><span>Cambia <strong>${from}</strong> por <strong>${to}</strong></span></li>`
-      ).join('');
-
-    // Render exercises
-    document.getElementById('coach-exercise-grid').innerHTML =
-      exercises.map(e =>
-        `<div class="coach-exercise-item">
-          <div class="coach-exercise-icon">${e.icon}</div>
-          <div class="coach-exercise-name">${e.name}</div>
-          <div class="coach-exercise-detail">${e.detail}</div>
-        </div>`
-      ).join('');
-
-    // Motivation
+    document.getElementById('coach-avoid-tags').innerHTML    = avoidTags.map(t => `<span class="coach-tag avoid">${t}</span>`).join('');
+    document.getElementById('coach-good-tags').innerHTML     = goodTags.map(t => `<span class="coach-tag good">${t}</span>`).join('');
+    document.getElementById('coach-swaps').innerHTML         = swaps.map(([f,t]) => `<li data-icon="→"><span>Cambia <strong>${f}</strong> por <strong>${t}</strong></span></li>`).join('');
+    document.getElementById('coach-exercise-grid').innerHTML = exercises.map(e => `<div class="coach-exercise-item"><div class="coach-exercise-icon">${e.icon}</div><div class="coach-exercise-name">${e.name}</div><div class="coach-exercise-detail">${e.detail}</div></div>`).join('');
     document.getElementById('coach-motivation-text').innerHTML = motivation;
 
     document.getElementById('coach-section').classList.add('show');
-    setTimeout(() => document.getElementById('coach-section').scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
   }
 
-    // call coach
-    renderCoach(kgForFood, cm, bmr * activityMult);
+  // ── MAIN CALCULATE ──
+  function calculate() {
+    const ageVal    = parseFloat(document.getElementById('age').value);
+    const weightVal = parseFloat(document.getElementById('weight').value);
+    const heightVal = parseFloat(document.getElementById('height').value);
 
-    // call food
-    const kgForFood = units === 'metric' ? weightVal : weightVal * 0.453592;
-    renderFood(bmr * activityMult, kgForFood);
+    if (!ageVal || !weightVal || !heightVal) { showToast('COMPLETA TODOS LOS CAMPOS'); return; }
 
-    saveToHistory({ gender, age: ageVal, weight: weightVal,
-      weightUnit: units === 'metric' ? 'kg' : 'lb', height: heightVal,
+    // Always work in metric internally
+    const kg = units === 'metric' ? weightVal : weightVal * 0.453592;
+    const cm = units === 'metric' ? heightVal : heightVal * 2.54;
+
+    const bmr = gender === 'male'
+      ? 88.362 + (13.397 * kg) + (4.799 * cm) - (5.677 * ageVal)
+      : 447.593 + (9.247 * kg) + (3.098 * cm) - (4.330 * ageVal);
+
+    const tdee = bmr * activityMult;
+
+    const activities = [
+      { label: 'Sedentario',           sub: 'poco o ningún ejercicio', mult: 1.2   },
+      { label: 'Levemente activo',     sub: '1–3 días / semana',       mult: 1.375 },
+      { label: 'Moderadamente activo', sub: '3–5 días / semana',       mult: 1.55  },
+      { label: 'Muy activo',           sub: '6–7 días / semana',       mult: 1.725 },
+      { label: 'Extra activo',         sub: 'trabajo físico intenso',  mult: 1.9   },
+    ];
+
+    document.getElementById('bmr-value').textContent = Math.round(bmr).toLocaleString('es');
+    document.getElementById('formula-note').textContent = gender === 'male'
+      ? `88.36 + (13.40 × ${kg.toFixed(1)}) + (4.80 × ${cm.toFixed(1)}) − (5.68 × ${ageVal})`
+      : `447.59 + (9.25 × ${kg.toFixed(1)}) + (3.10 × ${cm.toFixed(1)}) − (4.33 × ${ageVal})`;
+
+    document.getElementById('tdee-grid').innerHTML = activities.map(a => `
+      <div class="tdee-row ${a.mult === activityMult ? 'active-row' : ''}">
+        <span class="tdee-activity">${a.label}<small>${a.sub}</small></span>
+        <span class="tdee-kcal">${Math.round(bmr * a.mult).toLocaleString('es')}</span>
+      </div>`).join('');
+
+    document.getElementById('results').classList.add('show');
+
+    // Render sub-sections (kg/cm already declared above)
+    renderCoach(kg, cm);
+    renderFood(tdee, kg);
+
+    saveToHistory({
+      gender, age: ageVal, weight: weightVal,
+      weightUnit: units === 'metric' ? 'kg' : 'lb',
+      height: heightVal,
       heightUnit: units === 'metric' ? 'cm' : 'in',
-      bmr: Math.round(bmr), tdee: Math.round(bmr * activityMult), activityMult });
+      bmr: Math.round(bmr), tdee: Math.round(tdee), activityMult
+    });
+
+    setTimeout(() => document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
   }
 
+  // ── HISTORY ──
   const HISTORY_KEY = 'hb-history';
   function getHistory() { try { return JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]'); } catch { return []; } }
 
@@ -806,8 +649,10 @@
     setTimeout(() => t.classList.remove('show'), 2400);
   }
 
+  // ── PWA ──
   window.addEventListener('beforeinstallprompt', e => {
-    e.preventDefault(); deferredPrompt = e;
+    e.preventDefault();
+    deferredPrompt = e;
     setTimeout(() => document.getElementById('install-banner').classList.add('show'), 3500);
   });
 
@@ -816,7 +661,8 @@
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
     if (outcome === 'accepted') showToast('APP INSTALADA');
-    deferredPrompt = null; closeBanner();
+    deferredPrompt = null;
+    closeBanner();
   });
 
   function closeBanner() { document.getElementById('install-banner').classList.remove('show'); }

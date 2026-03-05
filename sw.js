@@ -1,4 +1,4 @@
-const CACHE_NAME = 'harris-benedict-v1.0.0';
+const CACHE_NAME = 'harris-benedict-v1.0.2';
 const ASSETS = [
   './',
   './index.html',
