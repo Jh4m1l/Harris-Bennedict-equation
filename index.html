@@ -490,12 +490,19 @@
     document.getElementById('coach-ideal-fill').style.width = (fillMax - fillMin) + '%';
     document.getElementById('coach-ideal-marker').style.left = Math.min(pct, 98) + '%';
 
-    const diff = Math.round(weightKg - (idealMin + idealMax) / 2);
-    document.getElementById('coach-ideal-hint').textContent = diff > 0
-      ? '→ Te sobran aprox. ' + diff + ' kg para alcanzar el centro del rango saludable (IMC 18.5–24.9).'
-      : diff < 0
-      ? '→ Te faltan aprox. ' + Math.abs(diff) + ' kg para alcanzar el centro del rango saludable (IMC 18.5–24.9).'
-      : '→ Estás exactamente en el centro del rango saludable. ¡Excelente!';
+    const diffFromMax = Math.round(weightKg - idealMax);
+    const bmiNote = `IMC actual: ${bmiRound} · Rango saludable: 18.5 – 24.9`;
+    let hintText;
+    if (diffFromMax > 0) {
+      hintText = `→ Tienes aprox. ${diffFromMax} kg por encima del límite superior saludable.`;
+    } else if (Math.round(weightKg - idealMin) < 0) {
+      const diffFromMin = Math.round(idealMin - weightKg);
+      hintText = `→ Estás aprox. ${diffFromMin} kg por debajo del límite inferior saludable.`;
+    } else {
+      hintText = '→ Estás dentro del rango de peso saludable. ¡Bien!';
+    }
+    document.getElementById('coach-ideal-hint').innerHTML =
+      `${hintText}<br><span style="font-size:.6rem;opacity:.4;letter-spacing:.08em;">${bmiNote}</span>`;
 
     let avoidTags, goodTags, swaps, exercises, motivation;
 
