@@ -286,7 +286,8 @@
       </div>
       <div class="coach-bmi-box">
         <div class="coach-bmi-num" id="coach-bmi">—</div>
-        <div class="coach-bmi-label">IMC</div>
+        <div class="coach-bmi-label" id="coach-bmi-label">kg</div>
+        <div style="font-size:.58rem;opacity:.35;margin-top:6px;letter-spacing:.08em;" id="coach-bmi-sub">IMC —</div>
       </div>
     </div>
 
@@ -470,7 +471,7 @@
     bar.className = 'coach-status-bar ' + statusClass;
     document.getElementById('coach-status-title').textContent = statusTitle;
     document.getElementById('coach-status-sub').textContent   = statusSub;
-    document.getElementById('coach-bmi').textContent          = bmiRound;
+    document.getElementById('coach-bmi-sub').textContent      = 'IMC ' + bmiRound;
 
     // Ideal weight based on healthy BMI range (18.5 – 24.9)
     const hM       = heightCm / 100;
@@ -491,17 +492,25 @@
     document.getElementById('coach-ideal-marker').style.left = Math.min(pct, 98) + '%';
 
     const diffFromMax = Math.round(weightKg - idealMax);
-    const bmiNote = `IMC actual: ${bmiRound} · Rango saludable: 18.5 – 24.9`;
-    let hintText;
+    const diffFromMin = Math.round(idealMin - weightKg);
+    const bmiNote = `IMC: ${bmiRound} · Rango saludable: 18.5 – 24.9`;
+    let hintText, bigNum, bigLabel;
     if (diffFromMax > 0) {
+      bigNum   = '+' + diffFromMax + ' kg';
+      bigLabel = 'de sobrepeso';
       hintText = `→ Tienes aprox. ${diffFromMax} kg por encima del límite superior saludable.`;
-    } else if (Math.round(weightKg - idealMin) < 0) {
-      const diffFromMin = Math.round(idealMin - weightKg);
+    } else if (diffFromMin > 0) {
+      bigNum   = '-' + diffFromMin + ' kg';
+      bigLabel = 'bajo el mínimo';
       hintText = `→ Estás aprox. ${diffFromMin} kg por debajo del límite inferior saludable.`;
     } else {
+      bigNum   = '✓';
+      bigLabel = 'peso saludable';
       hintText = '→ Estás dentro del rango de peso saludable. ¡Bien!';
     }
-    document.getElementById('coach-ideal-hint').innerHTML =
+    document.getElementById('coach-bmi').textContent       = bigNum;
+    document.getElementById('coach-bmi-label').textContent = bigLabel;
+    document.getElementById('coach-ideal-hint').innerHTML  =
       `${hintText}<br><span style="font-size:.6rem;opacity:.4;letter-spacing:.08em;">${bmiNote}</span>`;
 
     let avoidTags, goodTags, swaps, exercises, motivation;
