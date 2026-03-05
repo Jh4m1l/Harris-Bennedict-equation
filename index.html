@@ -10,7 +10,7 @@
   <meta name="apple-mobile-web-app-title" content="H-B" />
   <link rel="manifest" href="manifest.json" />
   <link rel="apple-touch-icon" href="icons/icon-192.png" />
-  <link rel="icon" href="icons/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><rect width=%27100%27 height=%27100%27 fill=%27%230a0a0a%27/><text y=%2278%27 x=%2250%27 text-anchor=%27middle%27 font-size=%2272%27 font-family=%27Arial%27 fill=%27%23ffe500%27>H</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Anton&display=swap" rel="stylesheet" />
@@ -32,8 +32,8 @@
     .shell { max-width: 600px; margin: 0 auto; padding: 0 0 80px; }
     .hero { border-bottom: var(--border); padding: 32px 20px 24px; }
     .hero-label { font-size: .65rem; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 8px; opacity: .5; }
-    .hero-title { font-family: 'Anton', sans-serif; font-size: clamp(3rem, 14vw, 6rem); line-height: .92; letter-spacing: -.02em; }
-    .hero-title em { font-style: normal; background: var(--black); color: var(--yellow); padding: 0 6px; }
+    .hero-title { font-family: 'Anton', sans-serif; font-size: clamp(2.6rem, 11vw, 5rem); line-height: 1.08; letter-spacing: -.02em; }
+    .hero-title em { font-style: normal; display: inline-block; background: var(--black); color: var(--yellow); padding: 2px 10px; margin-top: 6px; }
     .hero-sub { font-size: .75rem; margin-top: 16px; opacity: .55; line-height: 1.7; max-width: 380px; }
     .section { border-bottom: var(--border); padding: 24px 20px; }
     .section-label { font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
@@ -100,6 +100,25 @@
     .history-bmr { font-family: 'Anton', sans-serif; font-size: 1.2rem; white-space: nowrap; }
     .history-del { background: transparent; border: none; font-family: 'IBM Plex Mono', monospace; font-size: .8rem; opacity: .25; cursor: crosshair; padding: 4px; }
     .history-del:hover { opacity: 1; color: #c0392b; }
+
+    /* ── FOOD SECTION ── */
+    #food-section { display: none; border-bottom: var(--border); }
+    #food-section.show { display: block; }
+    .food-header { padding: 16px 20px; background: #ebebeb; border-bottom: var(--border); font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 700; }
+    .food-goal-row { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: var(--border); }
+    .food-goal { padding: 16px 20px; border-right: var(--border); }
+    .food-goal:last-child { border-right: none; }
+    .food-goal-label { font-size: .58rem; letter-spacing: .15em; text-transform: uppercase; opacity: .45; margin-bottom: 6px; }
+    .food-goal-val { font-family: 'Anton', sans-serif; font-size: 1.6rem; letter-spacing: -.02em; }
+    .food-goal-unit { font-size: .6rem; opacity: .4; }
+    .food-meals { padding: 0 20px 20px; }
+    .food-meal { padding: 14px 0; border-bottom: 1.5px solid rgba(0,0,0,.07); }
+    .food-meal:last-child { border-bottom: none; }
+    .food-meal-time { font-size: .6rem; letter-spacing: .15em; text-transform: uppercase; opacity: .4; margin-bottom: 5px; }
+    .food-meal-name { font-size: .85rem; font-weight: 700; margin-bottom: 3px; }
+    .food-meal-desc { font-size: .72rem; opacity: .5; line-height: 1.5; }
+    .food-meal-kcal { font-family: 'Anton', sans-serif; font-size: 1rem; float: right; margin-top: -38px; opacity: .7; }
+    .food-disclaimer { padding: 12px 20px; font-size: .62rem; opacity: .35; line-height: 1.7; border-top: var(--border); background: #f8f8f4; }
     footer { padding: 20px; font-size: .65rem; opacity: .35; line-height: 1.9; letter-spacing: .05em; border-top: var(--border); }
     footer a { color: inherit; }
     .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--black); color: var(--yellow); font-family: 'IBM Plex Mono', monospace; font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 10px 20px; border: var(--border); opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; white-space: nowrap; z-index: 200; }
@@ -307,6 +326,63 @@
     document.getElementById('results').classList.add('show');
     setTimeout(() => document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
 
+
+  // ── FOOD RECOMMENDATIONS ──
+  function renderFood(tdee, weightKg) {
+    const protein = Math.round(weightKg * 1.6);
+    const water   = (weightKg * 0.035).toFixed(1);
+
+    document.getElementById('food-tdee').textContent    = Math.round(tdee).toLocaleString('es');
+    document.getElementById('food-protein').textContent = protein;
+    document.getElementById('food-water').textContent   = water;
+
+    const kcalBreakfast = Math.round(tdee * 0.25);
+    const kcalLunch     = Math.round(tdee * 0.35);
+    const kcalSnack     = Math.round(tdee * 0.15);
+    const kcalDinner    = Math.round(tdee * 0.25);
+
+    const meals = [
+      {
+        time: '07:00 — Desayuno',
+        name: 'Avena con frutas y huevos',
+        desc: 'Avena cocida · 2 huevos revueltos · plátano · café negro',
+        kcal: kcalBreakfast
+      },
+      {
+        time: '13:00 — Almuerzo',
+        name: 'Arroz + proteína + vegetales',
+        desc: 'Pechuga de pollo o atún · arroz integral · ensalada · aceite de oliva',
+        kcal: kcalLunch
+      },
+      {
+        time: '16:30 — Merienda',
+        name: 'Snack energético',
+        desc: 'Yogur griego · nueces · fruta de temporada',
+        kcal: kcalSnack
+      },
+      {
+        time: '20:00 — Cena',
+        name: 'Proteína ligera + verduras',
+        desc: 'Pescado o legumbres · verduras salteadas · pan integral',
+        kcal: kcalDinner
+      }
+    ];
+
+    document.getElementById('food-meals').innerHTML = meals.map(m => `
+      <div class="food-meal">
+        <div class="food-meal-time">${m.time}</div>
+        <div class="food-meal-kcal">${m.kcal.toLocaleString('es')} kcal</div>
+        <div class="food-meal-name">${m.name}</div>
+        <div class="food-meal-desc">${m.desc}</div>
+      </div>`).join('');
+
+    document.getElementById('food-section').classList.add('show');
+  }
+
+    // call food
+    const kgForFood = units === 'metric' ? weightVal : weightVal * 0.453592;
+    renderFood(bmr * activityMult, kgForFood);
+
     saveToHistory({ gender, age: ageVal, weight: weightVal,
       weightUnit: units === 'metric' ? 'kg' : 'lb', height: heightVal,
       heightUnit: units === 'metric' ? 'cm' : 'in',
@@ -402,4 +478,4 @@
   window.addEventListener('DOMContentLoaded', renderHistory);
 </script>
 </body>
-</html>
+</html>git add index.html
